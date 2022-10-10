@@ -133,6 +133,7 @@ typedef struct {
 	unsigned int days_left;
 	bool has_expiry;
 	bool linked_to_pc;
+	char end_version[LCC_API_VERSION_LENGTH + 1];
 	LCC_LICENSE_TYPE license_type;  // Local or Remote
 	/* A string of character inserted into the license understood
 	 * by the calling application.

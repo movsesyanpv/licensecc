@@ -84,6 +84,11 @@ LicenseInfo LicenseVerifier::toLicenseInfo(const FullLicenseInfo& fullLicInfo) c
 	if (start_date != fullLicInfo.m_limits.end()) {
 	}
 
+	const auto end_version = fullLicInfo.m_limits.find(PARAM_VERSION_TO);
+	if (end_version != fullLicInfo.m_limits.end()) {
+		mstrlcpy(info.end_version, end_version->second.c_str(), sizeof(info.end_version));
+	} 
+
 	const auto client_sig = fullLicInfo.m_limits.find(PARAM_CLIENT_SIGNATURE);
 	info.linked_to_pc = (client_sig != fullLicInfo.m_limits.end());
 
